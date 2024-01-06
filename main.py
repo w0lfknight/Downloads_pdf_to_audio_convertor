@@ -14,9 +14,10 @@ def upload_file():
 
 
     with pdfplumber.open(file) as pdf:
+        text = ""
         for i in range(0, pages):
             page = pdf.pages[i]
-            text = page.extract_text()
+            text += page.extract_text()
             print(text)
 
             s = pyttsx3.init()
